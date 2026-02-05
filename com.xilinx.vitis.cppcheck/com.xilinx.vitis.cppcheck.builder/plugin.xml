@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!-- 扩展点: 构建器 -->
+   <extension
+         id="cppcheck.builder"
+         name="Cppcheck Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true"
+            name="Cppcheck Builder"
+            runInParallel="false">
+         <run
+               class="com.xilinx.vitis.cppcheck.builder.CppcheckBuilder">
+         </run>
+      </builder>
+   </extension>
+
+   <!-- 扩展点: 项目 Nature -->
+   <extension
+         id="cppcheck.nature"
+         name="Cppcheck Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.xilinx.vitis.cppcheck.builder.CppcheckNature">
+         </run>
+      </runtime>
+      <requires-nature
+            id="org.eclipse.cdt.core.cnature">
+      </requires-nature>
+   </extension>
+
+</plugin>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="com.xilinx.vitis.cppcheck.feature" version="1.0.0.qualifier">
+      <category name="com.xilinx.vitis.cppcheck.category"/>
+   </feature>
+   <category-def name="com.xilinx.vitis.cppcheck.category" label="Vitis Cppcheck">
+      <description>
+         Vitis Cppcheck Integration Plugin
+      </description>
+   </category-def>
+</site>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <!-- 扩展点: 处理器 -->
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.xilinx.vitis.cppcheck.run"
+            class="com.xilinx.vitis.cppcheck.ui.handlers.RunCppcheckHandler"/>
+   </extension>
+
+   <!-- 扩展点: 命令 -->
+   <extension point="org.eclipse.ui.commands">
+      <command
+            id="com.xilinx.vitis.cppcheck.run"
+            name="Run Cppcheck"
+            description="Run Cppcheck static analysis"/>
+   </extension>
+
+   <!-- 扩展点: 菜单 -->
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.ui.popup.any?before=additions">
+         <command
+               commandId="com.xilinx.vitis.cppcheck.run"
+               label="Run Cppcheck"
+               icon="icons/cppcheck.png">
+            <visibleWhen checkEnabled="false">
+               <or>
+                  <iterate ifEmpty="false">
+                     <adapt type="org.eclipse.core.resources.IResource">
+                        <test property="org.eclipse.core.resources.name" value="*.c"/>
+                     </adapt>
+                  </iterate>
+                  <iterate ifEmpty="false">
+                     <adapt type="org.eclipse.core.resources.IResource">
+                        <test property="org.eclipse.core.resources.name" value="*.cpp"/>
+                     </adapt>
+                  </iterate>
+                  <iterate ifEmpty="false">
+                     <adapt type="org.eclipse.core.resources.IResource">
+                        <test property="org.eclipse.core.resources.projectNature"
+                              value="org.eclipse.cdt.core.cnature"/>
+                     </adapt>
+                  </iterate>
+               </or>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <!-- 扩展点: 偏好设置 -->
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            id="com.xilinx.vitis.cppcheck.preferences"
+            name="Cppcheck"
+            class="com.xilinx.vitis.cppcheck.ui.preferences.CppcheckPreferencePage"
+            category="org.eclipse.cdt.ui.preferences.CPluginPreferencePage"/>
+   </extension>
+
+   <!-- 扩展点: 视图 -->
+   <extension point="org.eclipse.ui.views">
+      <view
+            id="com.xilinx.vitis.cppcheck.results"
+            name="Cppcheck Results"
+            class="com.xilinx.vitis.cppcheck.ui.views.CppcheckResultView"
+            icon="icons/cppcheck.png"/>
+   </extension>
+
+   <!-- 扩展点: 标记 -->
+   <extension
+         point="org.eclipse.core.resources.markers"
+         id="cppcheck_problem"
+         name="Cppcheck Problem Marker">
+      <super type="org.eclipse.cdt.core.problem"/>
+      <super type="org.eclipse.core.resources.textmarker"/>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true"/>
+
+      <!-- 声明支持的属性 -->
+      <attribute name="severity"/>
+      <attribute name="message"/>
+      <attribute name="lineNumber"/>
+      <attribute name="charStart"/>
+      <attribute name="charEnd"/>
+      <attribute name="location"/>
+      <attribute name="priority"/>
+      <attribute name="file"/>
+      <attribute name="problemId"/>
+   </extension>
+</plugin>

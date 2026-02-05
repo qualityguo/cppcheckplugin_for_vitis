@@ -1,0 +1,57 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+.metadata
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Cppcheck 源码（保留在本地但不同步到 git）
+cppcheck/
+cppcheclipse/
+
+# Vitis
+*.log
+*.bak
+*.tmp
+
+# 构建中间产物和临时目录
+# 离线安装包（临时目录，由 build.sh 脚本生成）
+offline-package/
+
+# p2 更新站点（临时目录，由 build.sh 脚本生成）
+p2-update-site/
+
+# Maven target 目录（已包含在上面的 target/ 规则中）
+# 但为了保险起见，排除 target 目录下的所有 zip 文件
+target/*.zip
+
+# OS
+.DS_Store
+Thumbs.db

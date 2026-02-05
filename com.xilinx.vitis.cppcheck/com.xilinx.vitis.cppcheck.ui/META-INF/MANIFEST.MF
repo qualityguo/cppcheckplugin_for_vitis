@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Vitis Cppcheck UI
+Bundle-SymbolicName: com.xilinx.vitis.cppcheck.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Xilinx
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.cdt.core,
+ org.eclipse.cdt.ui,
+ org.eclipse.ui.console,
+ com.xilinx.vitis.cppcheck.core;bundle-version="1.0.0"
+Bundle-Activator: com.xilinx.vitis.cppcheck.ui.Activator
+Export-Package: com.xilinx.vitis.cppcheck.ui,
+ com.xilinx.vitis.cppcheck.ui.handlers,
+ com.xilinx.vitis.cppcheck.ui.views,
+ com.xilinx.vitis.cppcheck.ui.preferences,
+ com.xilinx.vitis.cppcheck.ui.markers

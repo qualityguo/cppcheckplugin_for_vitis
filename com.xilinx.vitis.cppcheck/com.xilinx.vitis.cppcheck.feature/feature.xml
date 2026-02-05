@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.xilinx.vitis.cppcheck.feature"
+      label="Vitis Cppcheck Integration"
+      version="1.0.0.qualifier"
+      provider-name="Xilinx">
+
+   <description url="https://github.com/xilinx/vitis-cppcheck">
+      Integrate Cppcheck static analysis tool with Vitis 2021.1
+   </description>
+
+   <copyright>
+      Copyright (c) 2025 Xilinx, Inc.
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      Eclipse Public License - v 1.0
+   </license>
+
+   <requires>
+      <!-- 移除版本限制，让 p2 自动解析 -->
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.cdt.core"/>
+      <import plugin="org.eclipse.cdt.ui"/>
+      <import plugin="org.eclipse.ui.console"/>
+   </requires>
+
+   <plugin
+         id="com.xilinx.vitis.cppcheck.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.xilinx.vitis.cppcheck.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.xilinx.vitis.cppcheck.builder"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

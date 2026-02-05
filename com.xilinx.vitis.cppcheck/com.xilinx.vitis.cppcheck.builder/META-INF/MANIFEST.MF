@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Vitis Cppcheck Builder
+Bundle-SymbolicName: com.xilinx.vitis.cppcheck.builder;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Xilinx
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.cdt.core,
+ com.xilinx.vitis.cppcheck.core;bundle-version="1.0.0"
+Export-Package: com.xilinx.vitis.cppcheck.builder

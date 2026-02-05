@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Vitis Cppcheck Core
+Bundle-SymbolicName: com.xilinx.vitis.cppcheck.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Xilinx
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ActivationPolicy: lazy
+Export-Package: com.xilinx.vitis.cppcheck.core,
+ com.xilinx.vitis.cppcheck.core.model
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources

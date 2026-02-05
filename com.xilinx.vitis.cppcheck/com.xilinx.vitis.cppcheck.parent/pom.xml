@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xilinx.vitis</groupId>
+    <artifactId>com.xilinx.vitis.cppcheck.parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Vitis Cppcheck Plugin - Parent</name>
+    <description>Eclipse plugin for integrating Cppcheck with Vitis 2021.1</description>
+
+    <properties>
+        <!-- Tycho 版本 - 使用 2.5.0 以支持 Java 11 -->
+        <tycho.version>2.5.0</tycho.version>
+
+        <!-- 编译编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
+
+        <!-- Java 版本 - 使用 Java 11 以匹配 Vitis 2021.1 (JRE 11.0.2) -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <!-- Eclipse 插件版本 - 使用 2020-12 (Eclipse 4.18) 以匹配 Vitis 2021.1 -->
+        <eclipse.version>2020-12</eclipse.version>
+
+        <!-- 插件版本 -->
+        <plugin.version>1.0.0-SNAPSHOT</plugin.version>
+    </properties>
+
+    <modules>
+        <!-- 核心模块 -->
+        <module>../com.xilinx.vitis.cppcheck.core</module>
+        <!-- UI 模块 -->
+        <module>../com.xilinx.vitis.cppcheck.ui</module>
+        <!-- Builder 模块（可选） -->
+        <module>../com.xilinx.vitis.cppcheck.builder</module>
+        <!-- Feature 模块 -->
+        <module>../com.xilinx.vitis.cppcheck.feature</module>
+        <!-- Repository 模块（可选，用于 p2 仓库） -->
+        <module>../com.xilinx.vitis.cppcheck.repository</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <!-- Tycho Maven 插件 -->
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-maven-plugin</artifactId>
+                <version>${tycho.version}</version>
+                <extensions>true</extensions>
+            </plugin>
+
+            <!-- 目标平台配置 -->
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>target-platform-configuration</artifactId>
+                <version>${tycho.version}</version>
+                <configuration>
+                    <!-- 环境配置 -->
+                    <environments>
+                        <environment>
+                            <os>win32</os>
+                            <ws>win32</ws>
+                            <arch>x86_64</arch>
+                        </environment>
+                    </environments>
+                </configuration>
+            </plugin>
+
+            <!-- 编译器配置 -->
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-compiler-plugin</artifactId>
+                <version>${tycho.version}</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <optimize>true</optimize>
+                    <debug>true</debug>
+                </configuration>
+            </plugin>
+
+            <!-- 打包插件 -->
+            <plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-packaging-plugin</artifactId>
+                <version>${tycho.version}</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <!-- Eclipse 2020-12 完整更新站点 -->
+        <repository>
+            <id>eclipse-2020-12</id>
+            <url>https://download.eclipse.org/releases/2020-12/</url>
+            <layout>p2</layout>
+        </repository>
+    </repositories>
+
+</project>
